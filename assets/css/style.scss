@@ -6,7 +6,7 @@ $colors : (
     main: #333,
     accent:#e000f0,
     light: #e0e0e0,
-    dark-blue: #1c1d30,
+    dark-blue: #1e1e27,
     white-over-bg: rgba(255, 255, 255, .9)
 );
 
@@ -24,6 +24,12 @@ body {
     color: map-get($colors, main);
     text-align: center;
   }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
   
 /*-----------------
       TYPOGRAPHY
@@ -89,6 +95,7 @@ h4,
   /* Button */
 
   .btn{
+    cursor: pointer;
     font-size: .85em;
     font-weight: 700;
     display: inline-block;
@@ -99,26 +106,6 @@ h4,
     transition: all 100ms ease-in;
   }
 
-  .submit{
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      margin-top: 1em;
-      padding: 1em 2em;
-      border: 2px solid map-get($colors, accent);
-      border-radius: 0;
-      text-transform: uppercase;
-      font-weight: 600;
-      background-color: map-get($colors, accent);
-      color: map-get($colors, white-over-bg);
-
-      &:hover,
-      &:focus{
-          outline: none;
-          border: 2px solid map-get($colors, white-over-bg);
-          background-color: transparent;
-      }
-  }
-
   /* Forms generals */
 
   form{
@@ -127,6 +114,12 @@ h4,
       align-items: center;
       padding: 1em 0;
       padding-bottom: 0;
+  }
+
+  .input,
+  textarea,
+  .submit{
+    box-shadow: 5px 7px 5px rgba(0, 0, 0, .3);
   }
 
   .input,
@@ -148,6 +141,27 @@ h4,
     outline-color: map-get($colors, accent);
     outline-width: 2px;
   }
+
+  .submit{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    margin-top: 1em;
+    padding: 1em 2em;
+    border: 2px solid map-get($colors, accent);
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: map-get($colors, accent);
+    color: map-get($colors, white-over-bg);
+    transition-duration: 50ms;
+
+    &:hover,
+    &:focus{
+        outline: none;
+        border: 2px solid map-get($colors, white-over-bg);
+        background-color: transparent;
+    }
+}
 
 
   
@@ -246,14 +260,13 @@ header{
     transform-origin: top;
     transition: transform 250ms ease-in-out;
 
-    & ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
     &__item{
         padding: .5em 0;
+
+        &:hover,
+        &:focus{
+            font-weight: 600;
+        }
     }
 
     &__link{
@@ -318,7 +331,7 @@ header{
         display: block;
         max-width: 60%;
         margin: 0 auto;
-        margin-bottom: 2em;
+        margin-bottom: 4em;
     }
 
     &__subtitle {
@@ -560,5 +573,83 @@ header{
         box-sizing: border-box;
         width: 16rem;
         margin: .75em 0;
+    }
+}
+
+/* FOOTER */
+
+.footer{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2em 2em;
+    background-color: map-get($colors, dark-blue);
+
+    &__logo{ 
+        flex-basis: 100%;
+        padding-bottom: 2.6em;
+        
+        &::after{
+            content: "";
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: 1px;
+            position: relative;
+            top: 1.3em;
+            background-color: map-get($colors, white-over-bg);
+        }
+        //for media query
+        /* display: flex;
+        justify-content: space-between;
+
+        &__img,
+        &__whitespace{
+            width: 30%;
+            margin: 0;
+        } 
+        */  
+        &__img{
+            display: block;
+            margin: 0 auto;
+            max-width: 4.25em;
+        }
+
+        &__whitespace{
+            display: none;
+        }
+    }
+
+    &__menu,
+    &__side{
+        flex-basis: 48%;
+    }
+
+    &__menu{
+        & ul{
+            margin: 0;
+            text-align: left;
+        }
+
+        &__item{
+            margin: .5em 0;
+
+            &:first-of-type{
+                margin-top: 0;
+            }
+        }
+
+        &__link{
+            color: map-get($colors, white-over-bg);
+            font-size: .9em;
+            text-decoration: underline;
+            transition: all 50ms ease-in;
+
+            &:hover,
+            &:focus{
+                color: map-get($colors, accent);
+            }
+        }
     }
 }

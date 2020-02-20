@@ -17,6 +17,12 @@ body {
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 /*-----------------
       TYPOGRAPHY
 -----------------*/
@@ -78,6 +84,7 @@ a {
 
 /* Button */
 .btn {
+  cursor: pointer;
   font-size: .85em;
   font-weight: 700;
   display: inline-block;
@@ -87,25 +94,6 @@ a {
   border-radius: 1.25em;
   -webkit-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
-}
-
-.submit {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  margin-top: 1em;
-  padding: 1em 2em;
-  border: 2px solid #e000f0;
-  border-radius: 0;
-  text-transform: uppercase;
-  font-weight: 600;
-  background-color: #e000f0;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.submit:hover, .submit:focus {
-  outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  background-color: transparent;
 }
 
 /* Forms generals */
@@ -122,6 +110,13 @@ form {
           align-items: center;
   padding: 1em 0;
   padding-bottom: 0;
+}
+
+.input,
+textarea,
+.submit {
+  -webkit-box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.3);
 }
 
 .input,
@@ -142,6 +137,27 @@ textarea:hover,
 textarea:focus {
   outline-color: #e000f0;
   outline-width: 2px;
+}
+
+.submit {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  margin-top: 1em;
+  padding: 1em 2em;
+  border: 2px solid #e000f0;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #e000f0;
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-transition-duration: 50ms;
+          transition-duration: 50ms;
+}
+
+.submit:hover, .submit:focus {
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background-color: transparent;
 }
 
 /*-----------------
@@ -253,14 +269,12 @@ header {
   transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
 
-.menu ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 .menu__item {
   padding: .5em 0;
+}
+
+.menu__item:hover, .menu__item:focus {
+  font-weight: 600;
 }
 
 .menu__link {
@@ -326,7 +340,7 @@ header {
   display: block;
   max-width: 60%;
   margin: 0 auto;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 .main__subtitle {
@@ -351,7 +365,7 @@ header {
 
 /* ABOUT US */
 .mission {
-  background-color: #1c1d30;
+  background-color: #1e1e27;
   color: rgba(255, 255, 255, 0.9);
   padding: .75em .5em;
 }
@@ -513,7 +527,7 @@ header {
 /* PROJECTS */
 .projects__card {
   position: relative;
-  background-color: #1c1d30;
+  background-color: #1e1e27;
   /* &__link{
             &:hover img,
             &:focus img{
@@ -572,5 +586,86 @@ header {
           box-sizing: border-box;
   width: 16rem;
   margin: .75em 0;
+}
+
+/* FOOTER */
+.footer {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 2em 2em;
+  background-color: #1e1e27;
+}
+
+.footer__logo {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  padding-bottom: 2.6em;
+  /* display: flex;
+        justify-content: space-between;
+
+        &__img,
+        &__whitespace{
+            width: 30%;
+            margin: 0;
+        } 
+        */
+}
+
+.footer__logo::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 1px;
+  position: relative;
+  top: 1.3em;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.footer__logo__img {
+  display: block;
+  margin: 0 auto;
+  max-width: 4.25em;
+}
+
+.footer__logo__whitespace {
+  display: none;
+}
+
+.footer__menu, .footer__side {
+  -ms-flex-preferred-size: 48%;
+      flex-basis: 48%;
+}
+
+.footer__menu ul {
+  margin: 0;
+  text-align: left;
+}
+
+.footer__menu__item {
+  margin: .5em 0;
+}
+
+.footer__menu__item:first-of-type {
+  margin-top: 0;
+}
+
+.footer__menu__link {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: .9em;
+  text-decoration: underline;
+  -webkit-transition: all 50ms ease-in;
+  transition: all 50ms ease-in;
+}
+
+.footer__menu__link:hover, .footer__menu__link:focus {
+  color: #e000f0;
 }
 /*# sourceMappingURL=style.css.map */
