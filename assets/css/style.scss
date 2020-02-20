@@ -1,0 +1,564 @@
+/*-----------------
+      SASS
+-----------------*/
+
+$colors : (
+    main: #333,
+    accent:#e000f0,
+    light: #e0e0e0,
+    dark-blue: #1c1d30,
+    white-over-bg: rgba(255, 255, 255, .9)
+);
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: map-get($colors, light);
+    color: map-get($colors, main);
+    text-align: center;
+  }
+  
+/*-----------------
+      TYPOGRAPHY
+-----------------*/
+
+h1,
+h2,
+.main__subtitle,
+.main__logo,
+.main__btn{
+    margin-top: 0;
+}
+
+h1,
+h4,
+.main__subtitle,
+.main__btn
+    {
+    text-transform: uppercase;
+  }
+  
+  h1{
+    margin-top: 0;
+    margin-bottom: .5em;
+    color: map-get($colors, accent);
+    font-size: 1.45em;
+    letter-spacing: .01em;
+  }
+
+  .title{
+    color: map-get($colors, accent);
+    border: 3px solid map-get($colors, accent);
+    display: inline-block;
+    padding: .25em .5em;
+    margin-bottom: .5em;
+    border-radius: .025em;
+  }
+
+  .paragraph {
+      margin-bottom: 2em;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+
+  .link{
+    text-decoration: underline;
+    color: map-get($colors, white-over-bg);
+    font-weight: 600;
+    transition: color 100ms ease-in;
+
+    &:hover,
+    &:focus{
+        color: map-get($colors, accent);
+    }
+
+    &__dark{
+        color: map-get($colors, main);
+    }
+  }
+
+  /* Button */
+
+  .btn{
+    font-size: .85em;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0 auto;
+    border: 2px solid map-get($colors, light);
+    padding: 1.25em 1.5em;
+    border-radius: 1.25em;
+    transition: all 100ms ease-in;
+  }
+
+  .submit{
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      margin-top: 1em;
+      padding: 1em 2em;
+      border: 2px solid map-get($colors, accent);
+      border-radius: 0;
+      text-transform: uppercase;
+      font-weight: 600;
+      background-color: map-get($colors, accent);
+      color: map-get($colors, white-over-bg);
+
+      &:hover,
+      &:focus{
+          outline: none;
+          border: 2px solid map-get($colors, white-over-bg);
+          background-color: transparent;
+      }
+  }
+
+  /* Forms generals */
+
+  form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em 0;
+      padding-bottom: 0;
+  }
+
+  .input,
+  textarea{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    width: 16rem;
+    margin: .75em 0;
+    padding: .75em .75em;
+    font-size: .9em;
+    border: none;
+  }
+
+  .input:hover,
+  .input:focus,
+  textarea:hover,
+  textarea:focus
+  {
+    outline-color: map-get($colors, accent);
+    outline-width: 2px;
+  }
+
+
+  
+/*-----------------
+        LAYOUT
+-----------------*/
+
+section {
+    padding: 2rem .75rem 2rem;
+    
+}
+  
+.flex-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+.section-image{
+    width: 100%;
+    display: block;
+}
+
+.card {
+    background-color: map-get($colors, light);
+    color: map-get($colors, main);
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+
+    &__img{
+        display: block;
+        width: 100%;
+    }
+}
+
+/* HEADER */
+
+header{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.header-top-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1em 2em;
+}
+
+.ham{
+    cursor: pointer;
+    padding: .25em;
+
+    & span{
+        position: relative;
+        display: block;
+        width: 2.25em;
+        height: 3px;
+        background-color: map-get($colors, white-over-bg);
+
+        &::before,
+        &::after{
+            content: "";
+            display: block;
+            height: 3px;
+            background-color: map-get($colors, white-over-bg);
+        }
+
+        &::before{
+            position: relative;
+            top: -7px;
+            margin-left: 0;
+            width: 1.125em;
+        }
+
+        &::after{
+            position: relative;
+            bottom: -4px;
+            margin-right: 0;
+            width: 1.5em;
+        }
+    }
+}
+
+.menu{
+    /* display: none; */
+    padding: 1em 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 250ms ease-in-out;
+
+    & ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item{
+        padding: .5em 0;
+    }
+
+    &__link{
+        color: map-get($colors, main);
+        text-transform: uppercase;
+        font-size: .9em;
+    }
+
+    .selected{
+        font-weight: 600;
+
+        &::after{
+            content: "";
+            width: 2em;
+            height: 2px;
+            display: block;
+            margin: 0 auto;
+            background-color: map-get($colors, main);
+            border-radius: .25em;
+            margin-top: .25em;
+        }
+    }
+}
+
+.open-menu{
+    transform: scale(1, 1);
+    transform-origin: top;
+}
+
+.login{
+    color: map-get($colors, white-over-bg);
+    
+    &__link{
+        color: map-get($colors, accent);
+        font-weight: 700;
+        font-size: .9em;
+        transition: all 150ms ease-in-out;
+
+        &:hover,
+        &:focus{
+            color: map-get($colors, white-over-bg);
+            outline: 0;
+        }
+
+        & span{
+            margin: 0 .5em;
+            vertical-align: top;
+        }
+    }
+}
+
+/* MAIN */
+  
+.main {
+    background-image: url("../../images/home-background-blur.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-top: 8em;  
+
+    &__logo{
+        display: block;
+        max-width: 60%;
+        margin: 0 auto;
+        margin-bottom: 2em;
+    }
+
+    &__subtitle {
+      color: map-get($colors, light);
+      font-weight: 700;
+      font-size: .85em;
+      margin-top: 0;
+      margin-bottom: 1.5em;
+    }
+
+    &__btn {
+      margin-top: 2em;
+      background: map-get($colors, accent);
+      color: map-get($colors, white-over-bg);
+      border: 2px solid map-get($colors, accent);
+    
+      &:hover{
+        background: transparent;
+        color: map-get($colors, accent);
+        }
+    }
+}
+
+/* ABOUT US */
+
+.mission{
+    background-color: map-get($colors, dark-blue);
+    color: map-get($colors, white-over-bg);
+    padding: .75em .5em;
+}
+
+.about-us {
+
+    &__people{
+        margin-top: 2.5rem;
+
+        &__title {
+            font-size: 1.25em;
+            margin-bottom: 0;
+
+            &::after{
+                content: "";
+                display: block;
+                width: 30px;
+                height: 2px;
+                margin: 0 auto;
+                margin-top: .5em;
+                background-color: map-get($colors, main);
+            }
+        }
+    }
+
+    &__person{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+
+        &__name{
+            text-transform: capitalize;
+            margin: 0;
+            margin-top: .75em;
+        }
+
+        &__role{
+            text-transform: uppercase;
+            font-size: .75em;
+            margin-top: .5em;
+            margin-bottom: 0;
+        }
+
+        &__img{
+            height: 180px;
+            max-width: 150px;
+            object-fit: cover;
+            order: -1;
+            clip-path: polygon(0 0, 85% 0, 100% 100%, 15% 100%);
+        }
+
+        &__bio{
+            font-size: .95em;
+            width: 80%;
+        }
+
+        &::after{
+            content: "";
+            display: block;
+            width: 50%;
+            height: 2px;
+            margin: 0 auto;
+            margin-top: .5em;
+            background-color: map-get($colors, main);
+            opacity: .5;
+        }
+
+        &:last-child::after{
+            display: none;
+        }
+    }
+}
+
+/* SERVICES */
+
+.services{
+    background-color: map-get($colors, main);
+    color: map-get($colors, white-over-bg);
+
+    &__subtitle{
+        font-weight: 700;
+    }
+
+    &__card{
+        border-radius: .5em;
+        position: relative;
+
+        &__link{
+            position: absolute;
+            display: block;
+            /* background: rgba(255, 255, 255, 0.5); */
+            width: 100%;
+            height: 100%;
+            /* opacity: 0; */
+            transition: all 300ms ease-in;
+            
+            &:hover{
+                opacity: 1;
+            }
+
+            & div {
+                //mobile only 
+                background-color: rgba(0, 0, 0, 0.3);
+                //
+                width: 100%;
+                height: 150px;
+                display: flex;
+                align-items: flex-end;
+                position: absolute;
+                bottom: 0;
+            }
+
+            &__btn {
+                /* color: map-get($colors, main);
+                border-color: map-get($colors, main); */
+                display: block;
+                margin-bottom: 3em;
+                color: #fff;
+                border-color: #fff;
+                padding: 1em 2em;
+                font-size: 1em;
+
+                &:hover{
+                    color: #fff;
+                    background-color: map-get($colors, main);
+                }
+            }
+        }
+        
+        &__paragraph{
+            padding: 0 .75em;
+        }
+
+        &__img{
+            max-height: 150px;
+            object-fit: cover;
+        }
+
+        &__img,
+        & div {
+            border-bottom-left-radius: .5em;
+            border-bottom-right-radius: .5em;
+        }
+    }
+}
+
+/* PROJECTS */
+
+.projects{
+
+    &__card{
+        position: relative;
+        background-color: map-get($colors, dark-blue);
+
+        &__title{
+            position: absolute;
+            margin: 0;
+            top: 40%;
+            left: 0;
+            right: 0;
+            color: #fff;
+            /* font-size: 1.75em; */
+            font-size: 1.25em;
+            font-weight: 600;
+            opacity: 1;
+            transition: all 300ms ease-in-out;
+            z-index: 2;
+
+            &::after{
+                content: "";
+                display: block;
+                height: 2px;
+                width: 40%;
+                background-color: #fff;
+                margin: 0 auto;
+                margin-top: .5em;
+            }
+        }
+
+        //FOR MEDIA DESKTOP
+        /* &__link{
+            &:hover img,
+            &:focus img{
+                opacity: .2;
+            }
+            &:hover h4,
+            &:focus h4 {
+                opacity: 1;
+            }
+        } */
+
+        &__img{
+            max-height: 150px;
+            object-fit: cover;
+            opacity: .3;
+            transition: all 300ms ease-in-out;
+        }
+    }
+}
+
+/* CONTACTS */
+
+.contacts{
+    background-color: map-get($colors, main);
+    color: map-get($colors, white-over-bg);
+}
+
+.contact-form{
+
+    &__textarea{
+        box-sizing: border-box;
+        width: 16rem;
+        margin: .75em 0;
+    }
+}
