@@ -782,6 +782,7 @@ header {
   color: rgba(255, 255, 255, 0.9);
   font-weight: 700;
   line-height: 1.5;
+  margin-bottom: 0;
 }
 
 .login-container__signup__link {

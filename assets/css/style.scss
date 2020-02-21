@@ -759,6 +759,7 @@ header{
         color: map-get($colors, white-over-bg);
         font-weight: 700;
         line-height: 1.5;
+        margin-bottom: 0;
 
         &__link{
             font-weight: 400;
