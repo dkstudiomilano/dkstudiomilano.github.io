@@ -54,7 +54,7 @@ h1 {
   border: 3px solid #e000f0;
   display: inline-block;
   padding: .25em .5em;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
   border-radius: .025em;
   font-size: 1.25em;
 }
@@ -122,6 +122,9 @@ textarea,
 
 .input,
 textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   font-family: 'Montserrat', sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -130,6 +133,7 @@ textarea {
   padding: .75em .75em;
   font-size: .9em;
   border: none;
+  border-radius: none;
 }
 
 .input:hover,
@@ -580,6 +584,10 @@ header {
 .contacts {
   background-color: #333;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-form {
+  padding-top: 0;
 }
 
 .contact-form__textarea {

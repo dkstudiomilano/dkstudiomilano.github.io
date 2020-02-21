@@ -64,7 +64,7 @@ h4,
     border: 3px solid map-get($colors, accent);
     display: inline-block;
     padding: .25em .5em;
-    margin-bottom: .5em;
+    margin-bottom: 1em;
     border-radius: .025em;
     font-size: 1.25em;
   }
@@ -125,6 +125,7 @@ h4,
 
   .input,
   textarea{
+    appearance: none;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     width: 16rem;
@@ -132,6 +133,7 @@ h4,
     padding: .75em .75em;
     font-size: .9em;
     border: none;
+    border-radius: none;
   }
 
   .input:hover,
@@ -569,6 +571,7 @@ header{
 }
 
 .contact-form{
+    padding-top: 0;
 
     &__textarea{
         box-sizing: border-box;
