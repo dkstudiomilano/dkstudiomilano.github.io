@@ -75,6 +75,11 @@ h4,
   
   a {
     text-decoration: none;
+
+    &:focus{
+        outline-color: map-get($colors, accent);
+        outline-width: 2px;
+    }
   }
 
   .link{
@@ -320,6 +325,10 @@ header{
         }
     }
 }
+
+/*-----------
+  INDEX PAGE 
+-----------*/
 
 /* MAIN */
   
@@ -698,4 +707,63 @@ header{
 .social-link{
     color: map-get($colors, white-over-bg);
     margin-bottom: .75em;
+}
+
+/*-----------
+  LOGIN PAGE 
+-----------*/
+
+.login-title{
+    margin-top: 5em;
+    font-size: 1.5em;
+    color: map-get($colors, accent);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.login-container{
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 2em;
+    margin-bottom: 6em;
+    background-color: map-get($colors, main);
+    padding: 2em 0;
+
+    &__title{
+        color: map-get($colors, white-over-bg);
+        font-size: 1.25em;
+        font-weight: 600;
+    }
+
+    &__form{
+
+        &__link{
+            display: block;
+            color: map-get($colors, white-over-bg);
+            text-decoration: underline;
+            align-self: flex-start;
+            width: 13.5rem;
+            font-size: .85em;
+            margin-top: .75em;
+            margin-bottom: 1.5em;
+
+            &:hover,
+            &:focus{
+                color: map-get($colors, accent);
+            }
+        }
+    }
+
+    &__signup{
+        margin-top: 2.5em;
+        color: map-get($colors, white-over-bg);
+        font-weight: 700;
+        line-height: 1.5;
+
+        &__link{
+            font-weight: 400;
+            text-decoration: underline;
+            color: map-get($colors, white-over-bg);
+        }
+    }
 }

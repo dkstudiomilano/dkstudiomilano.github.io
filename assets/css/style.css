@@ -67,6 +67,11 @@ a {
   text-decoration: none;
 }
 
+a:focus {
+  outline-color: #e000f0;
+  outline-width: 2px;
+}
+
 .link {
   text-decoration: underline;
   color: rgba(255, 255, 255, 0.9);
@@ -332,6 +337,9 @@ header {
   vertical-align: top;
 }
 
+/*-----------
+  INDEX PAGE 
+-----------*/
 /* MAIN */
 .main {
   background-image: url("../../images/home-background-blur.png");
@@ -725,5 +733,60 @@ header {
 .social-link {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: .75em;
+}
+
+/*-----------
+  LOGIN PAGE 
+-----------*/
+.login-title {
+  margin-top: 5em;
+  font-size: 1.5em;
+  color: #e000f0;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.login-container {
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 2em;
+  margin-bottom: 6em;
+  background-color: #333;
+  padding: 2em 0;
+}
+
+.login-container__title {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.login-container__form__link {
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  width: 13.5rem;
+  font-size: .85em;
+  margin-top: .75em;
+  margin-bottom: 1.5em;
+}
+
+.login-container__form__link:hover, .login-container__form__link:focus {
+  color: #e000f0;
+}
+
+.login-container__signup {
+  margin-top: 2.5em;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.login-container__signup__link {
+  font-weight: 400;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.9);
 }
 /*# sourceMappingURL=style.css.map */
