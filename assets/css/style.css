@@ -212,9 +212,7 @@ header {
   top: 0;
   right: 0;
   left: 0;
-}
-
-.header-top-container {
+  height: 3.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -227,12 +225,17 @@ header {
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(0, 0, 0, 0.85);
+}
+
+.header-top-container {
   padding: 1em 2em;
 }
 
 .ham {
   cursor: pointer;
   padding: .25em;
+  margin-top: 1em;
+  margin-left: 2em;
 }
 
 .ham span {
@@ -264,10 +267,39 @@ header {
   width: 1.5em;
 }
 
+.login {
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 1em;
+  margin-right: 2em;
+}
+
+.login__link {
+  color: #e000f0;
+  font-weight: 700;
+  font-size: .9em;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.login__link:hover, .login__link:focus {
+  color: rgba(255, 255, 255, 0.9);
+  outline: 0;
+}
+
+.login__link span {
+  margin: 0 .5em;
+  vertical-align: top;
+}
+
 .menu {
-  /* display: none; */
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
   padding: 1em 0;
   margin: 0;
+  margin-top: 1em;
   background-color: rgba(255, 255, 255, 0.95);
   -webkit-transform: scale(1, 0);
           transform: scale(1, 0);
@@ -277,6 +309,19 @@ header {
   transition: -webkit-transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.menu__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .menu__item {
@@ -308,33 +353,21 @@ header {
   margin-top: .25em;
 }
 
+.ham-login {
+  text-align: center;
+  margin-top: 1em;
+  margin-right: 0;
+}
+
+.ham-login a {
+  color: #333;
+}
+
 .open-menu {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
   -webkit-transform-origin: top;
           transform-origin: top;
-}
-
-.login {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.login__link {
-  color: #e000f0;
-  font-weight: 700;
-  font-size: .9em;
-  -webkit-transition: all 150ms ease-in-out;
-  transition: all 150ms ease-in-out;
-}
-
-.login__link:hover, .login__link:focus {
-  color: rgba(255, 255, 255, 0.9);
-  outline: 0;
-}
-
-.login__link span {
-  margin: 0 .5em;
-  vertical-align: top;
 }
 
 /*-----------
@@ -351,7 +384,7 @@ header {
 
 .main__logo {
   display: block;
-  max-width: 60%;
+  max-width: 12em;
   margin: 0 auto;
   margin-bottom: 4em;
 }
@@ -366,6 +399,7 @@ header {
 
 .main__btn {
   margin-top: 2em;
+  border-radius: .5em;
   background: #e000f0;
   color: rgba(255, 255, 255, 0.9);
   border: 2px solid #e000f0;
@@ -373,7 +407,7 @@ header {
 
 .main__btn:hover {
   background: transparent;
-  color: #e000f0;
+  /* color: map-get($colors, accent); */
 }
 
 /* ABOUT US */
@@ -735,9 +769,92 @@ header {
   margin-bottom: .75em;
 }
 
-/*-----------
-  LOGIN PAGE 
------------*/
+/* INDEX MEDIA QUERIES */
+@media (min-width: 700px) {
+  h1 {
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: initial;
+  }
+  .title {
+    font-size: 1.4em;
+  }
+  section {
+    padding: 3rem 15%;
+  }
+  .card {
+    margin-bottom: 3em;
+  }
+  .card:last-of-type {
+    margin-bottom: 0;
+  }
+  .main__logo {
+    max-width: 18em;
+  }
+  .main__subtitle {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.125em;
+  }
+  .services__card__title {
+    margin-top: 1.5em;
+  }
+  .services__card__paragraph {
+    padding: 0 1.25em;
+  }
+  .contact-form__input,
+  .contact-form textarea {
+    width: 19rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  header .ham {
+    display: none;
+  }
+  header .menu {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    -ms-flex-preferred-size: unset;
+        flex-basis: unset;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    background-color: transparent;
+    padding: 0;
+    margin-left: 2em;
+  }
+  header .menu__ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  header .menu__link {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  header .menu .selected::after {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  header .menu .item-login {
+    display: none;
+  }
+  header .login {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .flex-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+/*----------------------------
+  LOGIN PAGEGE / SIGN UP PAGE
+----------------------------*/
 .login-title {
   margin-top: 5em;
   font-size: 1.5em;
@@ -789,5 +906,21 @@ header {
   font-weight: 400;
   text-decoration: underline;
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* GENERAL MEDIA QUERY */
+@media (min-width: 700px) {
+  .submit {
+    margin-top: 1.5em;
+  }
+  .footer {
+    padding: 2em 15%;
+  }
+  .footer__side__social {
+    width: 70%;
+  }
+  .footer__side__social__title {
+    padding-bottom: 1.25em;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -213,20 +213,23 @@ header{
     top: 0;
     right: 0;
     left: 0;
-}
-
-.header-top-container{
+    height: 3.25rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.85);
+}
+
+.header-top-container{
     padding: 1em 2em;
 }
 
 .ham{
     cursor: pointer;
     padding: .25em;
+    margin-top: 1em;
+    margin-left: 2em;
 
     & span{
         position: relative;
@@ -259,14 +262,46 @@ header{
     }
 }
 
+.login{
+    color: map-get($colors, white-over-bg);
+    margin-top: 1em;
+    margin-right: 2em;
+    
+    &__link{
+        color: map-get($colors, accent);
+        font-weight: 700;
+        font-size: .9em;
+        transition: all 150ms ease-in-out;
+
+        &:hover,
+        &:focus{
+            color: map-get($colors, white-over-bg);
+            outline: 0;
+        }
+
+        & span{
+            margin: 0 .5em;
+            vertical-align: top;
+        }
+    }
+}
+
 .menu{
-    /* display: none; */
+    order: 3;
+    flex-basis: 100%;
     padding: 1em 0;
     margin: 0;
+    margin-top: 1em;
     background-color: rgba(255, 255, 255, 0.95);
     transform: scale(1, 0);
     transform-origin: top;
     transition: transform 250ms ease-in-out;
+
+    &__ul{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 
     &__item{
         padding: .5em 0;
@@ -299,31 +334,19 @@ header{
     }
 }
 
+.ham-login{
+    text-align: center;
+    margin-top: 1em;
+    margin-right: 0;
+
+    & a{
+        color: map-get($colors, main);
+    }
+}
+
 .open-menu{
     transform: scale(1, 1);
     transform-origin: top;
-}
-
-.login{
-    color: map-get($colors, white-over-bg);
-    
-    &__link{
-        color: map-get($colors, accent);
-        font-weight: 700;
-        font-size: .9em;
-        transition: all 150ms ease-in-out;
-
-        &:hover,
-        &:focus{
-            color: map-get($colors, white-over-bg);
-            outline: 0;
-        }
-
-        & span{
-            margin: 0 .5em;
-            vertical-align: top;
-        }
-    }
 }
 
 /*-----------
@@ -341,7 +364,7 @@ header{
 
     &__logo{
         display: block;
-        max-width: 60%;
+        max-width: 12em;
         margin: 0 auto;
         margin-bottom: 4em;
     }
@@ -356,13 +379,14 @@ header{
 
     &__btn {
       margin-top: 2em;
+      border-radius: .5em;
       background: map-get($colors, accent);
       color: map-get($colors, white-over-bg);
       border: 2px solid map-get($colors, accent);
     
       &:hover{
         background: transparent;
-        color: map-get($colors, accent);
+        /* color: map-get($colors, accent); */
         }
     }
 }
@@ -709,9 +733,113 @@ header{
     margin-bottom: .75em;
 }
 
-/*-----------
-  LOGIN PAGE 
------------*/
+/* INDEX MEDIA QUERIES */
+
+@media (min-width: 700px){
+
+    h1{
+        font-size: 2em;
+        font-weight: 600;
+        letter-spacing: initial;
+    }
+
+    .title{
+        font-size: 1.4em;
+    }
+
+    section{
+        padding: 3rem 15%;
+    }
+
+    .card{
+        margin-bottom: 3em;
+
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+    
+    .main{
+        &__logo{
+            max-width: 18em;
+        }
+
+        &__subtitle{
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 0.125em;
+        }
+    }
+
+    .services{
+        &__card{
+
+            &__title{
+                margin-top: 1.5em;
+            }
+
+            &__paragraph{
+                padding: 0 1.25em;
+            }
+        }
+    }
+
+    .contact-form{
+        &__input,
+        & textarea{
+            width: 19rem;
+        }
+    }
+}
+
+@media (min-width: 1000px){
+
+    header{
+
+        .ham{
+            display: none;
+        }
+
+        .menu{
+            order: 2;
+            flex-basis: unset;
+            transform: scale(1, 1);
+            background-color: transparent;
+            padding: 0;
+            margin-left: 2em;
+
+            &__ul{
+                flex-direction: row;
+            }
+
+            &__link{
+                color: map-get($colors, white-over-bg);
+            }
+
+            .selected{
+                &::after{
+                    background-color: map-get($colors, white-over-bg);
+                }
+            }
+
+            .item-login{
+                display: none;
+            }
+        }
+
+        .login{
+            order: 3;
+        }
+    }
+
+    .flex-container{
+        flex-direction: row;
+    }
+}
+
+/*----------------------------
+  LOGIN PAGEGE / SIGN UP PAGE
+----------------------------*/
 
 .login-title{
     margin-top: 5em;
@@ -765,6 +893,29 @@ header{
             font-weight: 400;
             text-decoration: underline;
             color: map-get($colors, white-over-bg);
+        }
+    }
+}
+
+/* GENERAL MEDIA QUERY */
+
+@media (min-width: 700px){
+
+    .submit{
+        margin-top: 1.5em;
+    }
+
+    .footer{
+        padding: 2em 15%;
+
+        &__side{
+            &__social{
+                width: 70%;
+
+                &__title{
+                    padding-bottom: 1.25em;
+                }
+            }
         }
     }
 }

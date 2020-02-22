@@ -16,30 +16,32 @@
 <body>
 
   <header>
-    <div class="header-top-container">
       <div class="ham" onclick="toggleMenu()">
         <span></span>
       </div>
 
       <div class="login">
         <a href="login.html" class="login__link"><span>Log in</span><i class="fas fa-sign-in-alt"></i></a>
-        <!-- <span>/</span>
-        <a href="htmls/sign-up.html" class="login__link">Sign up</a> -->
       </div>
-    </div>
-    
 
     <menu class="menu">
-      <ul>
+      <ul class="menu__ul">
         <li class="menu__item"><a href="#" class="menu__link selected">Home</a></li>
         <li class="menu__item"><a href="#" class="menu__link">About us</a></li>
         <li class="menu__item"><a href="#" class="menu__link">Services</a></li>
         <li class="menu__item"><a href="#" class="menu__link">Projects</a></li>
         <li class="menu__item"><a href="#" class="menu__link">Contacts</a></li>
         <li class="menu__item"><a href="#" class="menu__link">FAQ</a></li>
+        <li class="menu__item item-login">
+          <div class="login ham-login">
+            <a href="login.html" class="login__link"><span>Log in</span><i class="fas fa-sign-in-alt"></i></a>
+          </div>
+        </li>
       </ul>
     </menu>
   </header>
+
+  <!-- MAIN -->
     
     <main class="main">
         <div class="flex-container">
