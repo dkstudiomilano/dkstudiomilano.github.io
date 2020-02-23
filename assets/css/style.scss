@@ -178,7 +178,7 @@ h4,
 -----------------*/
 
 section {
-    padding: 2rem .75rem 2rem;
+    padding: 4rem .75rem 4rem;
     
 }
   
@@ -459,6 +459,7 @@ header{
         &__bio{
             font-size: .95em;
             width: 80%;
+            margin-bottom: 0;
         }
 
         &::after{
@@ -815,8 +816,8 @@ header{
 @media (min-width: 1100px){
 
     section{
-        padding-top: 4em;
-        padding-bottom: 4em;
+        padding-top: 5em;
+        padding-bottom: 5em;
     }
 
     .flex-container{
@@ -909,12 +910,74 @@ header{
             margin-top: 6em;
         }
     }
+
+    .about-us{
+
+        &__flex{
+            justify-content: space-between;
+            margin-top: 2em;
+            flex-wrap: nowrap;
+        }
+        &__flex .paragraph{
+            text-align: left;
+        }
+
+        & .section-image{
+            object-fit: cover;
+            min-width: 0;
+            flex-basis: 40%;
+            object-position: -6.5em 0;
+            margin: 0;
+        }
+
+        & .paragraph,
+        .mission-container{
+            margin-top: 0;
+        }
+
+        &__people{
+            margin-top: 4em;
+            background-color: map-get($colors, main);
+            color: map-get($colors, white-over-bg);
+
+            &::before{
+                content: "";
+                display: block;
+                margin: 0 auto;
+                width: 50%;
+                height: 2px;
+                border-radius: 1em;
+                background-color: map-get($colors, main);
+                opacity: .5;
+                position: relative;
+                bottom: 1em;
+            }
+        }
+
+        &__person{
+            &::after{
+                display: none;
+            }
+        }
+    }
+
+    .mission-container{
+        flex-basis: 55%;
+    }
+
+    .mission{
+        & .paragraph{
+            text-align: center;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+    }
 }
 
 @media (min-width: 1300px){
 
     section{
-        padding: 4em 20%;
+        padding: 5em 20%;
     }
 }
 

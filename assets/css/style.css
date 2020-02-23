@@ -174,7 +174,7 @@ textarea:focus {
         LAYOUT
 -----------------*/
 section {
-  padding: 2rem .75rem 2rem;
+  padding: 4rem .75rem 4rem;
 }
 
 .flex-container {
@@ -488,6 +488,7 @@ header {
 .about-us__person__bio {
   font-size: .95em;
   width: 80%;
+  margin-bottom: 0;
 }
 
 .about-us__person::after {
@@ -828,8 +829,8 @@ header {
 
 @media (min-width: 1100px) {
   section {
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: 5em;
+    padding-bottom: 5em;
   }
   .flex-container {
     -webkit-box-orient: horizontal;
@@ -914,11 +915,65 @@ header {
   .main__btn {
     margin-top: 6em;
   }
+  .about-us__flex {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 2em;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .about-us__flex .paragraph {
+    text-align: left;
+  }
+  .about-us .section-image {
+    -o-object-fit: cover;
+       object-fit: cover;
+    min-width: 0;
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+    -o-object-position: -6.5em 0;
+       object-position: -6.5em 0;
+    margin: 0;
+  }
+  .about-us .paragraph,
+  .about-us .mission-container {
+    margin-top: 0;
+  }
+  .about-us__people {
+    margin-top: 4em;
+    background-color: #333;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .about-us__people::before {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 2px;
+    border-radius: 1em;
+    background-color: #333;
+    opacity: .5;
+    position: relative;
+    bottom: 1em;
+  }
+  .about-us__person::after {
+    display: none;
+  }
+  .mission-container {
+    -ms-flex-preferred-size: 55%;
+        flex-basis: 55%;
+  }
+  .mission .paragraph {
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 @media (min-width: 1300px) {
   section {
-    padding: 4em 20%;
+    padding: 5em 20%;
   }
 }
 
